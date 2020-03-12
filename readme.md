@@ -2,6 +2,9 @@
 
 Base react native application for scalable projects using Redux + React Navigation v5, + .....
 
+## Note:
+
+[Version for react navigation v4](https://github.com/hungdev/react-native-setup-copy/tree/navigationv4)
 
 ## Important dependencies:
 
