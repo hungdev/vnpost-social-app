@@ -1,6 +1,10 @@
 b1: 
+```
 import { connect } from 'react-redux';
+```
 
+
+```
 copy đoạn dưới vứt xuống cuối cùng của file, và thay đổi Home
 function mapStateToProps(state) {
   return {
@@ -16,6 +20,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
+```
 
 b3:
 tạo action
@@ -33,6 +38,10 @@ rồi import cái file reducer nãy vừa tạo trên
 b5: quay về màn hình view
 
 muốn gửi 1 cái gì đó lên redux
+
+```
+import {tenAction} from '../duong dan den action file'
+```
 
 tại button onPress gọi this.props.dispatchSetAbc(data)  truyền vào data nếu có, ko có thì để trống
 
