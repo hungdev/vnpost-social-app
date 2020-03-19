@@ -10,7 +10,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatchSetAuth: (detail) => dispatch(),
+    // tenAction()
+    dispatchTenAction (data) => dispatch(tenAction(data)),
   };
 }
 
@@ -28,4 +29,12 @@ b4: tạo reducer
 tao 1 file reducer
 mở file index.js trong folder reducer
 rồi import cái file reducer nãy vừa tạo trên
+
+b5: quay về màn hình view
+
+muốn gửi 1 cái gì đó lên redux
+
+tại button onPress gọi this.props.dispatchSetAbc(data)  truyền vào data nếu có, ko có thì để trống
+
+muốn lấy về thì dùng this.props.tenData ở hàm mapStateToProps
 
