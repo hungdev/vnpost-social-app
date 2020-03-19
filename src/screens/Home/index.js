@@ -1,40 +1,75 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { removeAuth } from '../../actions/authAction';
+import { addNote } from '../../actions/noteAction';
 
-class Home extends React.Component {
+class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+    };
+  }
+
+  onPressAdd() {
+    this.props.dispatchAddNote(this.state.value);
+  }
+
+  onRemove(value) {
+    alert(value);
+  }
   render() {
+    console.log('zzzzzz', this.props.data);
     return (
-      <View>
-        <Text>home</Text>
+      <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+        <Text> {this.state.value} </Text>
+        {this.props.data.map(e => {
+          return (
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ marginRight: 10 }}>{e}</Text>
+              <TouchableOpacity onPress={() => this.onRemove(e)}>
+                <Text>Remove</Text>
+              </TouchableOpacity>
+            </View>
+          );
+        })}
+        <TextInput
+          value={this.state.value}
+          onChangeText={(text) => this.setState({ value: text })}
+          style={{ width: '90%', height: 50, borderWidth: 1 }}
+        />
         <TouchableOpacity
-          onPress={() => this.props.dispatchRemoveAuth()}>
-          <Text>Logout</Text>
+          style={{
+            height: 50,
+            backgroundColor: 'green',
+            width: 200,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 10,
+            marginTop: 10,
+          }}
+          onPress={() => this.onPressAdd()}
+        >
+          <Text>add note</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-
+// lấy state từ store redux
 function mapStateToProps(state) {
   return {
-    user: state.auth.user,
+    // note lấy trong index.js trong folder reducer
+    data: state.note.contents,
   };
 }
 
+// gửi action
 function mapDispatchToProps(dispatch) {
   return {
-    dispatchRemoveAuth: () => dispatch(removeAuth()),
+    // addNote là action được import ở trên
+    dispatchAddNote: (content) => dispatch(addNote(content)),
   };
 }
 
