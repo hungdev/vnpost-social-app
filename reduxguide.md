@@ -28,11 +28,15 @@ tạo action
 tạo 1 file action
 
 mở file index.js trong folder action
+
 rồi import cái file action nãy vừa tạo trên
 
 b4: tạo reducer
+
 tao 1 file reducer
+
 mở file index.js trong folder reducer
+
 rồi import cái file reducer nãy vừa tạo trên
 
 b5: quay về màn hình view
