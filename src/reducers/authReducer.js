@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialAuthState = {
-  user: 'hello@cee',
+  user: '',
 };
 
 export default (state = initialAuthState, action) => {

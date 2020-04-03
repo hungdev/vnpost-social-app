@@ -54,7 +54,11 @@ function ContainerStack() {
   const store = useSelector(store => store);
   console.log('store', store.auth.user);
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       {!store.auth.user ? (
         <>
           <Stack.Screen name="SignIn" component={SignInScreen} />

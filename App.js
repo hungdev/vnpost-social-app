@@ -22,7 +22,7 @@ const persistConfig = {
   // ],
   //ko persist
   blacklist: [
-    // 'late'
+    'auth',
   ],
 };
 
