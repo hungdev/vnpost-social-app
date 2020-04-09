@@ -2,6 +2,7 @@
 const images = {
   logo: require('../assets/logo_color.png'),
   btnLogin: require('../assets/button_block.png'),
+  headerBackground: require('../assets/header_background.png'),
   // clearLogo: require('../Images/top_logo.png'),
   // launch: require('../Images/launch-icon.png'),
   // ready: require('../Images/your-app.png'),

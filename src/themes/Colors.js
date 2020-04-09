@@ -19,10 +19,19 @@ const colors = {
   fire: '#e73536',
   drawer: 'rgba(30, 30, 29, 0.95)',
   eggplant: '#251a34',
-  border: '#483F53',
+  // border: '#483F53',
   banner: '#5F3E63',
   text: '#E0D7E5',
-  white: '#fff',
+  // Color App
+  inputBackgroundColor: 'rgba(12, 18, 24, 0.7)',
+  white: '#ffffff',
+  card: '#ffffff',
+  darkRed: '#980000',
+  black: '#000000',
+  pink: '#FF8383',
+  border: '#707070',
+  grey: '#393737',
+  divider: '#E2E2E2',
 };
 
 export default colors;

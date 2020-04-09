@@ -22,6 +22,7 @@ import SignUpScreen from '../screens/Register';
 // Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
 // goes here.
 // import { Metrics } from '../themes';
+import { Images, Metrics, Colors } from '../themes';
 
 function TabHome() {
   return (
@@ -56,13 +57,13 @@ function ContainerStack() {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: false,
+        // headerShown: false,
       }}
     >
       {!store.auth.user ? (
         <>
-          <Stack.Screen name="SignIn" component={SignInScreen} />
-          <Stack.Screen name="SignUp" component={SignUpScreen} />
+          <Stack.Screen options={{ headerShown: false }} name="SignIn" component={SignInScreen} />
+          <Stack.Screen options={{ headerShown: false }} name="SignUp" component={SignUpScreen} />
           {/* <Stack.Screen name="ResetPassword" component={ResetPassword} /> */}
         </>
       ) :
@@ -71,7 +72,25 @@ function ContainerStack() {
             <Stack.Screen
               name="Home"
               component={TabHome}
-            // options={{ headerShown: false }}
+              options={({ route, navigation }) => (
+                {
+                  headerTintColor: Colors.white,
+                  headerTitleStyle: {
+                    fontWeight: 'Bold',
+                    fontSize: Platform.OS === 'android' ? 26 : 24,
+                  },
+                  headerBackground: () => (
+                    <Image
+                      resizeMode="stretch"
+                      style={{
+                        width: '100%', height: Metrics.navBarHeight,
+                      }}
+                      source={Images.headerBackground} />
+                  ),
+                  route: { route },
+                  navigation: { navigation },
+                }
+              )}
             />
             <Stack.Screen name="Notifications" component={ProfileScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
