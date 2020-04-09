@@ -16,4 +16,8 @@ const api = create({
 export function login(params) {
   return api.post('/login', params);
 }
+
+export function register(params) {
+  return api.post('/signup', params);
+}
 // export function getChanel(params) { return api.get('/channels.list', params); }
